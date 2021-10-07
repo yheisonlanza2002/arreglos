@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercisio de tarea</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form action="">
+        <input type="text" id="nombre" placeholder="Escriba el nombre del provedor"><br>
+        <input type="number" id="nit" placeholder="Digite el nit del proveedor"><br>
+        <button type="button" onclick="regitrar();">Registrar</button>
+    </form>
+    <br>
+    <table>
+            <tr>
+                <td class="caja" colspan="2">Registrar proveedores</td>
+            </tr>
+            <td>Nombre</td>
+            <td>Nit</td>
+            <tbody id="tabla"></tbody>
+    </table>
+</body>
+</html>
+<script>
+    var proveedor =[];
+
+    function regitrar() {
+        var nombre = document.getElementById("nombre").value;
+        var nit = document.getElementById("nit").value;
+
+        proveedor.push({
+            "nombre":nombre,
+            "nit":nit
+        });
+
+        listar_proveedores();
+    }
+
+    function listar_proveedores() {
+
+        var listar="";
+
+        for (var i = 0; i < proveedor.length; i++) {
+            listar += "<tr><td>"+proveedor[i].nombre+"</td>";
+            listar += "<td>"+proveedor[i].nit+"</td></tr>";
+            
+        }
+        document.getElementById("tabla").innerHTML=listar;
+    }
+</script>
